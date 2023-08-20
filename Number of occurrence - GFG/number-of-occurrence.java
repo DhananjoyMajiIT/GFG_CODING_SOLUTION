@@ -37,16 +37,40 @@ public class Main {
 
 class Solution {
     int count(int[] arr, int n, int x) {
+        //this is correct solution T(c)=O(N)
+        // int count=0;
+        // for(int i=0;i<n;i++){
+        //     if(x==arr[i]){
+        //         count++;
+        //     }
+        // }
+        // if(count==0){
+        //     return 0;
+        // }
+        // return count;
         
-        int count=0;
-        for(int i=0;i<n;i++){
-            if(x==arr[i]){
-                count++;
-            }
-        }
-        if(count==0){
-            return 0;
-        }
-        return count;
+        //the question tell me solve the problem  T(C)=O(log N)
+        
+         int count=0;
+         int i=0;
+         
+         if(arr[0]>x)return 0;
+         if(arr[n-1]<x)return 0;
+         
+         while(i<n){
+             if(arr[i]<x){
+                 while(arr[i]==arr[i+1]){
+                     i++;
+                 }
+             }
+             
+             if(arr[i]==x){
+                 count++;
+             }
+             
+             if(arr[i]>x)break;
+             i++;
+         }
+         return count;
     }
 }
