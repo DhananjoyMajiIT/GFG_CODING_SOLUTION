@@ -25,7 +25,7 @@ class GFG
             if(arr[left] == x && arr[right] == x) {
                 list.add(0,left);
                 list.add(1,right);
-                break;
+                return list;
             }
             if(arr[left] != x ) left++;
             
