@@ -27,7 +27,7 @@ public class Main {
             for (int i : array) arr[idx++] = i;
 
             System.out.println(new Solution().minJumps(arr));
-            // System.out.println("~");
+            System.out.println("~");
         }
     }
 }
@@ -37,27 +37,27 @@ public class Main {
 
 class Solution {
     static int minJumps(int[] arr) {
-        // your code here
-        int steps=0;
-        int curidx=0;
-        int maxdis=0;
-        if(arr.length==0 || arr[0]==0){
+        // code here
+        int curjump=0;
+        int step =0;
+        int maxjump=0;
+        if(arr[0]==0 || arr.length==0){
             return -1;
         }
         if(arr.length==1){
             return 1;
         }
-            for(int i=0;i<arr.length-1;i++){
-                maxdis=Math.max(maxdis,i+arr[i]);
-                if(i==curidx){
-                    steps++;
-                    curidx=maxdis;
-                    if(curidx>=arr.length-1)
-                        return steps;
+        
+        for(int i=0;i<arr.length-1;i++){
+            maxjump=Math.max(maxjump,i+arr[i]);
+            if(i==curjump){
+                step++;
+                curjump=maxjump;
+                if(curjump>=arr.length-1){
+                    return step;
                 }
             }
-        
+        }
         return -1;
-        
     }
-}//{1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9}
+}
